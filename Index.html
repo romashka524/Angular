@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css" />
+    <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="controllers.js"></script>
+    <script type="text/javascript" src="filters.js"></script>
+    <script type="text/javascript" src="directives.js"></script>
+    
+     
+</head>
+ 
+<body>
+   
+    <h1>ЛАБОРАТОРНАЯ РАБОТА "Турист"</h1>
+    <div ng-controller ="Contorller1">
+        <div class="row">	
+            <div class="col-sm-6">
+                <form name="myForm">
+                    <div><h2>Input</h2></div>
+                            <input type="text" id="input1" placeholder="Action" ng-model="newItem.name" />
+                                <input list="myList" type="text" id="input2" placeholder="Level" ng-model="newItem.priority" />
+                                <datalist id="myList">
+                                    <option value="High">
+                                    <option value="Medium">
+                                    <option value="Low">
+                                </datalist>
+                                <input type="text" id="input3" placeholder="Author" ng-model="newItem.ispoln" />
+                                <button class="btn btn-primary" ng-click="add()">New</button>
+                </form>
+
+
+                                <datalist id="myList">
+                                    <option value="High">
+                                    <option value="Medium">
+                                    <option value="Low">
+                                </datalist>
+
+                <h3>Topical</h3>
+                <select ng-model="filterName">
+                    <option></option>
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Low</option>
+                </select>
+
+                <table id="table1">
+                    <tbody><tr ng-repeat="i in items | filter:{priority:filterName}"><td>{{i.name}}</td><td testcolor>{{i.priority}}</td><td>{{i.ispoln}}</td><td><button ng-click="replace(i.name, i.priority, i.ispoln, i)">Ok!</button></td><td><button ng-click="del(i)">Delete</button></td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="col-sm-6">
+                <h4>Archive</h4>
+                <table id="table2">
+                    <tbody><tr ng-repeat="i in items2"><td>{{i.name}}   <0/td><td> {{i.priority}} </td><td>{{i.ispoln}}</td></tr></tbody>
+                </table>
+            </div>
+             </div>
+        </div>
+</body>
+</html>
